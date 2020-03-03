@@ -3,7 +3,7 @@ import React, { Component } from 'react'
 import Navbar from './components/Navbar'
 
 import Home from './views/Home'
-import Post from './views/Post'
+// import Post from './views/Post'
 
 import LoginForm from './components/LoginForm'
 
@@ -54,19 +54,19 @@ class App extends Component {
   }
 
   render () {
-    if (!this.state.authorization) {
-      return (
-        <div className='app login'>
-          <LoginForm onSubmit={this.onLogin.bind(this)} />
-        </div>
-      )
-    }
+  // if (!this.state.authorization) {
+  //   return (
+  //     <div className='app login'>
+  //       <LoginForm onSubmit={this.onLogin.bind(this)} />
+  //     </div>
+  //   )
+  // }
 
     return (
       <div className='app'>
         <Navbar />
         <div className='container'>
-          <Post />
+
           <Home />
         </div>
       </div>

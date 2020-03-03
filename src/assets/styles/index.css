@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Trade+Winds&display=swap');
+
 .app .container {
   padding-top: 2rem;
 }
@@ -14,4 +16,15 @@
 
   align-items: center;
   justify-content: center;
+}
+
+.card-body {
+  font-family: 'Trade Winds';
+  color: peru;
+  font-size: large;
+}
+
+.card-title {
+  font-family: 'Times New Roman', Times, serif;
+  color: blue;
 }

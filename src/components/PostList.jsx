@@ -13,10 +13,10 @@ function PostList (props) {
             className='col-md-4'
           >
             <PostCard
-              title={post.title}
-              img={post.image}
-              text={post.text}
-              readTime={post.readTime}
+              title={post.id}
+              img={post.name}
+              text={post.fullName}
+              readTime={post.owner}
             >
               <PostCardButtons
                 edit={post.edit}

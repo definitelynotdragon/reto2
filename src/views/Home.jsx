@@ -3,6 +3,8 @@ import React, { Component } from 'react'
 import AppLoading from '../components/AppLoading'
 import PostList from '../components/PostList'
 
+// import simulatedResponse from '../constants/repos.json'
+
 class Home extends Component {
   constructor (props) {
     super(props)
@@ -14,31 +16,36 @@ class Home extends Component {
   }
 
   componentDidMount () {
-    setInterval(async () => {
+    const hola = async () => {
       this.setState({
         loading: true
       })
 
       const token = window.sessionStorage.getItem('authorization')
 
-      const response = await window.fetch('http://localhost:8080/posts', {
+      const response = await window.fetch('https://api.github.com/users/kodemia/repos', {
         headers: { authorization: token }
       })
 
       const payload = await response.json()
+      // const payload = simulatedResponse
 
-      const posts = payload.data.posts.map((badPost) => ({
-        image: badPost.imageUrl,
-        title: badPost.title,
-        text: badPost.description,
-        readTime: badPost.readingTime
+      const posts = payload.map((repos) => ({
+        id: repos.id,
+        name: repos.name,
+        fullName: repos.full_name,
+        owner: repos.owner.login
       }))
+
+      // console.log(posts)
 
       this.setState({
         posts,
         loading: false
       })
-    }, 2000)
+    }
+
+    hola().then()
   }
 
   render () {
